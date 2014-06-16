@@ -1,0 +1,40 @@
+# Contributor: Whitney Marshall <whitney.marshall@gmail.com>
+# Maintainer: McNoggins <Gagnon88 (at) gmail (dot) com>
+
+pkgname=go-mtpfs-git
+pkgver=20140218
+pkgrel=4
+pkgdesc="Simple tool for viewing MTP devices as FUSE filesystems"
+arch=('x86_64' 'i686')
+url="http://github.com/hanwen/go-mtpfs"
+license=('BSD')
+depends=('libmtp' 'fuse')
+makedepends=('go' 'git')
+options=('!strip' '!emptydirs')
+_gourl=github.com/hanwen/go-mtpfs
+
+build() {
+  cd "$srcdir"
+  GOPATH="$srcdir" go get -v -x ${_gourl}
+}
+
+check() {
+
+  GOPATH="$GOPATH:$srcdir" go test -v -x ${_gourl}
+}
+
+package() {
+
+  # Package license (if available)
+  for f in LICENSE COPYING; do
+    if [ -e "$srcdir/src/$_gourl/$f" ]; then
+      install -Dm644 "$srcdir/src/$_gourl/$f" "$pkgdir/usr/share/licenses/$pkgname/$f"
+    fi
+  done
+  
+  # Package executables
+  if [ -e "$srcdir/bin/go-mtpfs" ]; then
+    install -Dm755 "$srcdir/bin/go-mtpfs" \
+      "$pkgdir/usr/bin/go-mtpfs"
+  fi
+}

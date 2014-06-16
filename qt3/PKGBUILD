@@ -1,5 +1,6 @@
 # $Id$
-# Maintainer: Eric Bélanger <eric@archlinux.org>
+# Submbitter: Eric Bélanger <eric@archlinux.org>
+# Maintainer: McNoggins <gagnon88 (at) gmail (dot) com>
 
 pkgname=qt3
 pkgver=3.3.8b
