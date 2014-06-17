@@ -12,7 +12,7 @@ md5sums=("SKIP")
 
 pkgver() {
   cd "$srcdir/complex_bessel"
-  git describe --tags | sed -E 's/([^-]+-g)/r\1/;s/-/./g;s/^v//g'
+  git log -1 --format="%cd" --date=short | sed 's|-||g'
 }
 
 build() {
