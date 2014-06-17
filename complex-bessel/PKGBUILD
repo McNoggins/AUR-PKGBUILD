@@ -1,0 +1,31 @@
+pkgname=complex-bessel-git
+pkgver=release.0.3.1
+pkgrel=1
+pkgdesc="C++ library to evaluate Bessel functions of all kinds"
+arch=('i686' 'x86_64')
+url="https://github.com/valandil/complex_bessel"
+license=('LGPLv3')
+makedepends=('git' 'autoconf')
+provides=('complex-bessel')
+source=("git+https://github.com/valandil/complex_bessel.git")
+md5sums=("SKIP")
+
+pkgver() {
+  cd "$srcdir/complex_bessel"
+  git describe --tags | sed -E 's/([^-]+-g)/r\1/;s/-/./g;s/^v//g'
+}
+
+build() {
+
+  cd "$srcdir/complex_bessel"
+  bash autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+package() { 
+  cd "$srcdir/complex_bessel"
+  make DESTDIR="$pkgdir/" install
+
+}
+
