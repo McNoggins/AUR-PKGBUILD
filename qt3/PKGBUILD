@@ -10,7 +10,7 @@ arch=('i686' 'x86_64')
 url="http://www.trolltech.com/products/qt/index.html"
 license=('GPL')
 depends=('libpng' 'libxmu' 'libxcursor' 'libxinerama' 'glu' 'libxft'
-         'libxrandr' 'libmng')
+         'libxrandr' 'libmng' 'libunistring')
 makedepends=('mariadb' 'postgresql' 'unixodbc' 'sqlite' 'mesa')
 optdepends=('qtchooser: set the default Qt toolkit'
             'libmariadbclient: MariaDB driver'
