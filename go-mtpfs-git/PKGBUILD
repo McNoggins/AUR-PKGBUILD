@@ -2,7 +2,7 @@
 # Maintainer: McNoggins <Gagnon88 (at) gmail (dot) com>
 
 pkgname=go-mtpfs-git
-pkgver=20140903
+pkgver=20141215
 pkgrel=1
 pkgdesc="Simple tool for viewing MTP devices as FUSE filesystems"
 arch=('x86_64' 'i686')
