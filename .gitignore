@@ -7,7 +7,8 @@
 *.o
 *.so
 *.pyc
- 
+*.gem
+
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
@@ -22,7 +23,8 @@
 *.zip
 *.tar.xz
 *.bz2
- 
+*.deb
+
 # Logs and databases #
 ######################
 *.log
